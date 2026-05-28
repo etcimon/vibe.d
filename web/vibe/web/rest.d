@@ -2105,7 +2105,7 @@ private HTTPClientResponse request(URL base_url,
 			"REST interface mismatch: Missing required header field(s): "
 			~ missingKeys.to!string);
 
-	if (!isSuccessCode(cast(HTTPStatus)client_res.statusCode))
+	if (!isSuccessCode(cast(HTTPStatus)client_res.statusCode) && verb != HTTPMethod.HEAD)
 	{
 		import std.base64;
 
