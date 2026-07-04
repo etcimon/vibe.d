@@ -1490,7 +1490,8 @@ private HTTPServerRequestDelegate jsonMethodHandler(alias Func, size_t ridx, T)(
 
 		void handleException(Exception e, HTTPStatus default_status)
 		@safe {
-			logDebug("REST handler exception: %s", () @trusted { return e.toString(); } ());
+			logDebug("REST handler exception: %s", e.msg);
+			logTrace("Full exception: %s", () @trusted { return e.toString(); } ());
 			if (res.headerWritten) {
 				logDebug("Response already started. Client will not receive an error code!");
 				return;
