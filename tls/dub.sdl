@@ -25,3 +25,6 @@ configuration "openssl-static" {
 configuration "notls" {
 	subConfiguration "vibe-stream:tls" "notls"
 }
+configuration "botan" {
+	subConfiguration "vibe-stream:tls" "botan"
+}

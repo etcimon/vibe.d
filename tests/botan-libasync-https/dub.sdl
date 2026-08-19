@@ -1,0 +1,19 @@
+name "botan-libasync-https"
+description "Botan TLS + eventcore libasync HTTPS server/client coverage"
+
+dependency "vibe-http" version="~>1.0"
+dependency "vibe-stream" version="~>1.0"
+dependency "vibe-stream:tls" version="~>1.0"
+dependency "vibe-inet" version="~>1.0"
+dependency "vibe-serialization" version="~>1.0"
+dependency "vibe-core" version="~>2"
+dependency "eventcore" version="~>0.9.27"
+dependency "botan" version="~>3.13.2"
+dependency "mir-linux-kernel" version="~>1.2.1" optional=true
+
+subConfiguration "vibe-stream:tls" "botan"
+subConfiguration "vibe-core" "libasync"
+subConfiguration "eventcore" "libasync"
+subConfiguration "botan" "full"
+
+versions "VibeCustomMain"
